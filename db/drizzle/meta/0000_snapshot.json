@@ -1,5 +1,5 @@
 {
-  "id": "fcb52e9b-1910-4aff-a30f-5aa9c4e4c007",
+  "id": "41f62e64-353f-4998-b383-a3086269b4b2",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -112,6 +112,30 @@
           "primaryKey": false,
           "notNull": true
         },
+        "cidr": {
+          "name": "cidr",
+          "type": "cidr",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "inet": {
+          "name": "inet",
+          "type": "inet",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "macaddr": {
+          "name": "macaddr",
+          "type": "macaddr",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "macaddr8": {
+          "name": "macaddr8",
+          "type": "macaddr8",
+          "primaryKey": false,
+          "notNull": true
+        },
         "varchar": {
           "name": "varchar",
           "type": "varchar",
@@ -121,6 +145,18 @@
         "boolean": {
           "name": "boolean",
           "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time": {
+          "name": "time",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time_tz": {
+          "name": "time_tz",
+          "type": "time with time zone",
           "primaryKey": false,
           "notNull": true
         },

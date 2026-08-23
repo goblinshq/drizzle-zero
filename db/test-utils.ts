@@ -1573,8 +1573,14 @@ export const seed = async () => {
     textField: 'text',
     charField: 'c',
     uuidField: '123e4567-e89b-12d3-a456-426614174000',
+    cidrField: '192.168.0.0/24',
+    inetField: '192.168.0.1',
+    macaddrField: '08:00:2b:01:02:03',
+    macaddr8Field: '08:00:2b:ff:fe:01:02:03',
     varcharField: 'varchar',
     booleanField: true,
+    timeField: '12:34:56.789',
+    timeTzField: '12:34:56.789+02',
     timestampField: new Date(),
     timestampTzField: new Date(),
     timestampModeString: new Date().toISOString(),
@@ -1677,7 +1683,7 @@ export const startZero = async (options: {getQueriesUrl: string}) => {
   const basePgUrlWithInternalPort = `${basePgUrl}@postgres-db:5432`;
 
   // Start Zero container
-  zeroContainer = await new GenericContainer(`rocicorp/zero:0.25.0-canary.27`)
+  zeroContainer = await new GenericContainer(`rocicorp/zero:1.7.0-canary.3`)
     .withExposedPorts({
       container: 4848,
       host: ZERO_PORT,

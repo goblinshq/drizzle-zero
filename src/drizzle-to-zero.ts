@@ -31,11 +31,16 @@ type DrizzleColumnType =
   | 'PgChar'
   | 'PgVarchar'
   | 'PgUUID'
+  | 'PgCidr'
+  | 'PgInet'
+  | 'PgMacaddr'
+  | 'PgMacaddr8'
   | 'PgEnumColumn'
   | 'PgJsonb'
   | 'PgJson'
   | 'PgNumeric'
   | 'PgDateString'
+  | 'PgTime'
   | 'PgTimestampString'
   | 'PgArray';
 
@@ -48,11 +53,16 @@ export const drizzleColumnTypeToZeroType = {
   PgChar: 'string',
   PgVarchar: 'string',
   PgUUID: 'string',
+  PgCidr: 'string',
+  PgInet: 'string',
+  PgMacaddr: 'string',
+  PgMacaddr8: 'string',
   PgEnumColumn: 'string',
   PgJsonb: 'json',
   PgJson: 'json',
   PgNumeric: 'number',
   PgDateString: 'number',
+  PgTime: 'number',
   PgTimestampString: 'number',
   PgArray: 'json',
 } as const satisfies Record<DrizzleColumnType, string>;
@@ -73,6 +83,19 @@ export const postgresTypeToZeroType = {
   'character': 'string',
   'varchar': 'string',
   'character varying': 'string',
+  'cidr': 'string',
+  'ean13': 'string',
+  'inet': 'string',
+  'isbn': 'string',
+  'isbn13': 'string',
+  'ismn': 'string',
+  'ismn13': 'string',
+  'issn': 'string',
+  'issn13': 'string',
+  'macaddr': 'string',
+  'macaddr8': 'string',
+  'pg_lsn': 'string',
+  'upc': 'string',
   'uuid': 'string',
   'enum': 'string', // enums are emitted via zero.enumeration([...]) and are strings
 
@@ -99,6 +122,10 @@ export const postgresTypeToZeroType = {
 
   // date/time mapped to number (epoch millis)
   'date': 'number',
+  'time': 'number',
+  'time without time zone': 'number',
+  'time with time zone': 'number',
+  'timetz': 'number',
   'timestamp': 'number',
   'timestamp without time zone': 'number',
   'timestamp with time zone': 'number',
